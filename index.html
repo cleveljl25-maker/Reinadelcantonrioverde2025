@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reina del Cantón</title>
+    <style>
+        /* Tipografía moderna */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9fb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Encabezado con gradiente */
+        header {
+            background: linear-gradient(135deg, #ff4d6d, #d63384);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+
+        header h2 {
+            font-weight: 300;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Secciones */
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .biografia {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .biografia img {
+            flex: 1 1 300px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        
+    max-width: 380px;
+    height: auto;
+}
+
+        .biografia img:hover {
+            transform: scale(1.05);
+        }
+
+        .biografia div {
+            flex: 1 1 300px;
+        }
+
+        /* Galería moderna */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .galeria img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .foto-final {
+            grid-column: 1 / -1; /* hace que ocupe todo el ancho de la galería */
+            display: flex;
+             justify-content: center;
+        }
+
+        .foto-final img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .galeria video {
+             width: 100%;
+             border-radius: 12px;
+             box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Lista moderna */
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        ul li:hover {
+            transform: translateX(5px);
+        }
+
+        /* Contacto */
+        .contacto a {
+            color: #d63384;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Reina del Cantón Rio Verde</h1>
+        <h2>Jamileth Gonzales Burgos – 2025/2026</h2>
+    </header>
+
+ <section class="biografia">
+    <div>
+        <h2>Biografía</h2>
+        <p>María Fernanda López, actual reina de nuestro cantón, ha dedicado su reinado a promover la cultura, el turismo y la solidaridad con las comunidades. Con su carisma y dedicación, inspira a jóvenes y adultos a construir un futuro mejor.</p>
+    </div>
+    <img src="imagenes reina/WhatsApp Image 2025-08-13 at 1.30.45 PM.jpeg" alt="Foto de la Reina del Cantón">
+</section>
+
+
+    <section>
+        <h2>Galería de Momentos</h2>
+        <div class="galeria">
+            <img src="imagenes reina/WhatsApp Image 2025-08-13 at 1.31.21 PM.jpeg" alt="Evento 1">
+            <img src="imagenes reina/WhatsApp Image 2025-08-13 at 2.28.00 PM.jpeg" alt="Evento 2">
+            <img src="imagenes reina/WhatsApp Image 2025-08-13 at 2.28.01 PM.jpeg" alt="Evento 3">
+            <img src="imagenes reina/WhatsApp Image 2025-08-13 at 2.28.00 PM (2).jpeg" alt="Evento 4">
+            <img src="imagenes reina/WhatsApp Image 2025-08-13 at 2.28.00 PM (3).jpeg" alt="Evento 5">
+            <img src="imagenes reina/WhatsApp Image 2025-08-13 at 2.28.00 PM (1).jpeg" alt="Evento 6">
+            <img src="imagenes reina/WhatsApp Image 2025-08-13 at 2.28.01 PM (1).jpeg" alt="Evento 7">
+  
+
+<!-- Video con audio y controles -->
+        <video loop preload="none" controls>
+            <source src="imagenes reina/WhatsApp Video 2025-08-13 at 1.31.46 PM.mp4" type="video/mp4">
+            Tu navegador no soporta videos.
+        </video>
+
+        <img src="evento4.jpg" alt="Evento 4">
+        <div class="foto-final">
+            <img src="imagenes reina/WhatsApp Image 2025-08-13 at 2.28.01 PM (2).jpeg" alt="Foto final de la galería">
+        </div>
+
+        </div>
+    </section>
+
+    <section>
+        <h2>Agenda y Logros</h2>
+        <ul>
+            <li>Participación en la Feria Cultural – Febrero 2025</li>
+            <li>Proyecto de Reforestación – Marzo 2025</li>
+            <li>Campaña de Donación de Víveres – Abril 2025</li>
+        </ul>
+    </section>
+
+    <section class="contacto">
+        <h2>Contacto</h2>
+        <p>📷 Instagram: <a href="#">@reina.canton</a></p>
+        <p>📧 Correo: reinacanton@example.com</p>
+    </section>
+
+    <footer>
+        <p>© 2025 Cantón Río Verde - Todos los derechos reservados</p>
+    </footer>
+
+</body>
+</html>
+
