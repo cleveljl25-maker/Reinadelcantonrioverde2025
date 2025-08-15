@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noticias y Actividades</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+:root {
+    --verde-esmeralda: #2e8b57;
+    --rosado-fondo: #f9d5e5;
+    --rosado-boton: #ff4d6d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--rosado-fondo);
+    color: #333;
+}
+
+/* Encabezado */
+header {
+    background: white;
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    position: relative;
+}
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #2e8b57;
+}
+header h2 {
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: #2e8b57;
+    margin-bottom: 1rem;
+}
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 150px;
+    height: auto;
+}
+
+/* Menú */
+nav {
+    background-color: white;
+    padding: 0.5rem 0;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+.menu li a {
+    color: var(--verde-esmeralda);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+.menu li a:hover, .menu li a.activo {
+    color: #2e8b57;
+    text-decoration: underline;
+}
+
+/* Encabezado de sección */
+.noticias-header {
+    background: var(--rosado-boton);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-radius: 0 0 20px 20px;
+}
+.noticias-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.noticias-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Tarjetas de noticias */
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.noticia-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+.noticia-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.noticia-content {
+    padding: 1rem;
+    flex: 1;
+}
+.noticia-content h3 {
+    color: #070707;
+    margin-bottom: 0.3rem;
+}
+.noticia-content small {
+    display: block;
+    color: #777;
+    margin-bottom: 0.8rem;
+}
+.noticia-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Botón */
+.boton-noticia {
+    background: var(--rosado-boton);
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+.boton-noticia:hover {
+    background: #e63b5c;
+}
+
+/* Texto extra */
+.extra-info {
+    display: none;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+</style>
+</head>
+<link rel="icon" href="imagenes reina/favicon.ico" type="image/x-icon">
+<body>
+
+<header>
+    <img src="imagenes reina/Logotipo reina.png" alt="Logo Reina de Rioverde" class="logo">
+    <h1>Reina del Cantón Rioverde</h1>
+    <h2>Jamileth Gonzales Burgos – 2025/2026</h2>
+</header>
+
+<nav>
+    <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="noticias.html" class="activo">Noticias</a></li>
+        <li><a href="galeria de momento.html">Galería de Momentos</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
+    </ul>
+</nav>
+
+<section class="noticias-header">
+    <h2>Noticias y Actividades</h2>
+    <p>Mantente al día con mis proyectos, eventos y logros como Reina del Cantón Rio Verde 2025-2026</p>
+</section>
+
+<section class="noticias-grid">
+    <!-- Noticia 1 -->
+    <div class="noticia-card">
+        <img src="imagenes reina/noche cultural.jpeg" alt="noche cultural">
+        <div class="noticia-content">
+            <h3>Noche Cultural </h3>
+            <small>4 de agosto de 2025</small>
+            <p>🎉Este 4 de agosto te esperamos para disfrutar juntos los Barrios cantan y el Festival Cultural.</p>
+            <p>Una joranda para compartir en familia, vecinos y celebrar el talento de nuestra gente. Habrá música, cultura, alegria y mucho más..</p>
+             <p> ¡no te lo pierda! </p>
+            <div class="extra-info">
+                📍Lugar: Av.5 de agosto <br>
+                🕗Hora: 20h00 pm <br>
+            </div>
+            <span class="boton-noticia" onclick="mostrarMas(this)">Leer más</span>
+        </div>
+    </div>
+    <!-- Noticia 2 -->
+    <div class="noticia-card">
+        <img src="imagenes reina/Independencia Rio verde.jpg" alt="independencia Rio verde">
+        <div class="noticia-content">
+            <h3>Independencia Politica </h3>
+            <small>5 de agosto de 2025</small>
+            <p>🎉 Celebramos 2️⃣0️⃣5️⃣ años de Independencia Política
+            <p> ¡Que viva esta tierra de valientes, que sigue escribiendo su historia con fuerza y esperanza! </p>
+            <p> Rioverde conmemora su libertad, su cultura y su gente. </p>
+            <p> ¡ Que viva Rioverde! 🗽</p>
+            <div class="extra-info">
+               
+            </div>
+            <span class="boton-noticia" onclick="mostrarMas(this)">Leer más</span>
+        </div>
+    </div>
+    <!-- Noticia 3 -->
+    <div class="noticia-card">
+        <img src="imagenes reina/Desfile Rio verde.jpg" alt="Desfile Rio verde">
+        <div class="noticia-content">
+            <h3>Desfile Cívico Cultural</h3>
+            <small>05 de agosto de 2025</small>
+            <p>📌Te invitamos a ser parte del Desfile Cívico Cultural por los 205 años de independencia Politica de Ríoverde.</p>
+            <p> ✨ Vive con nosotros esta fiesta llena de identidad, tradición y orgullo verde. </p>
+            <div class="extra-info">
+                🗓️ ¡Te esperamos mañana! <br>
+                📍 Punta de Arena/Plaza Cívica Ríoverde <br>
+                🕘 08h00 am <br>
+            </div>
+            <span class="boton-noticia" onclick="mostrarMas(this)">Leer más</span>
+        </div>
+    </div>
+
+    <!-- Noticia 4 -->
+    <div class="noticia-card">
+        <img src="imagenes reina/sesion solmne.jpg" alt="seccion solemne ">
+        <div class="noticia-content">
+            <h3>Seseón Solemne</h3>
+            <small>05 de agosto de 2025</small>
+            <p>📌Hoy te esperamos en la Sesión Solemne por los 205 Años de Independencia Política de Ríoverde </p>
+            <p>El Gad Municipal de Ríoverde, tiene el honor de invitar a toda la ciudadanía a la Sesión Solemne en conmemoración del 205 Independencia Política de Ríoverde.</p>
+            <div class="extra-info">
+                📍 Malecon Ríoverde <br>
+                🕘 12h00 pm 📌 <br>
+            </div>
+            <span class="boton-noticia" onclick="mostrarMas(this)">Leer más</span>
+        </div>
+    </div>
+
+
+     <!-- Noticia 5 -->
+    <div class="noticia-card">
+        <img src="imagenes reina/torneo futbol.jpg" alt="Torneo Futbol">
+        <div class="noticia-content">
+            <h3>Gran Torneo Juvenil </h3>
+            <small>15 y 16 de agosto de 2025</small>
+            <p>🎉¡Vive el fútbol juvenil en Rocafuerte!</p>
+            <p>El GAD Parroquial de Rocafuerte, en colaboración con la Reina de Rioverde, World Vision y la Policía Nacional, te invita a disfrutar del Campeonato de Fútbol Juvenil que se llevará a cabo el 15 y 16 de agosto en nuestra parroquia. </p>
+            <p>Ven a apoyar a tus equipos favoritos y disfruta de un fin de semana lleno de deporte y diversión. </p>
+            <p>Organizan: GAD Parroquial de Rocafuerte, Reina de Rioverde, World Vision y Policía Nacional </p>
+            <p>¡No te pierdas la emoción del fútbol juvenil en Rocafuerte!</p>
+
+            <div class="extra-info">
+                📆Fecha: 15 y 16 de agosto <br>
+                📍Lugar: Canchas del barrio 25 de Enero y Antonio Lara Quiñonez <br>
+                 ¡Te esperamos! <br>
+            </div>
+            <span class="boton-noticia" onclick="mostrarMas(this)">Leer más</span>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2025 Reina de Cantón Río Verde - Todos los derechos reservados</p>
+    <p>Diseño y desarrollo por <strong> Clevel JL </strong></p>
+</footer>
+
+<script>
+function mostrarMas(boton) {
+    const extra = boton.previousElementSibling;
+    if (extra.style.display === "block") {
+        extra.style.display = "none";
+        boton.textContent = "Leer más";
+    } else {
+        extra.style.display = "block";
+        boton.textContent = "Leer menos";
+    }
+}
+</script>
+
+</body>
+</html>
