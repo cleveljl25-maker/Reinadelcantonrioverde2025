@@ -48,10 +48,12 @@ header h2 {
     margin-bottom: 1rem;
 }
 .logo {
-    position: static; /* ya no absolute */
-    width: 120px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 150px;
     height: auto;
-    margin-bottom: 1rem;
 }
 
 
@@ -169,11 +171,10 @@ footer {
     text-align: center;
     padding: 1.5rem;
     font-size: 0.9rem;
-    position: relative; /* antes fixed */
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    margin-top: 2rem;
 }
 
 </style>
@@ -249,6 +250,7 @@ function toggleInfo(btn) {
 
 </body>
 </html>
+
 
 
 
