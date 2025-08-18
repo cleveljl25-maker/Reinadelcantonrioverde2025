@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reina del Cantón</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+    :root {
+        --verde-esmeralda: #50C878;
+        --rosado-fondo: #f9d5e5;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--rosado-fondo);
+        color: #333;
+        line-height: 1.6;
+    }
+
+    header {
+        background: white;
+        text-align: center;
+        padding: 2rem 1rem 1rem;
+        position: relative;
+    }
+
+         header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2e8b57; /* Dorado extraído del logo */
+    }
+
+
+        header h2 {
+            font-weight: 300;
+            font-size: 1.2rem;
+            color: #2e8b57; /* Dorado extraído del logo */
+            margin-bottom: 1rem;
+    }
+
+
+    .logo {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        width: 150px;
+        height: auto;
+    }
+
+    /* Menú */
+    nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+    .menu {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        list-style: none;
+    }
+    .menu li a {
+        color: #2e8b57;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+    .menu li a:hover {
+        color: #2e8b57;
+        text-decoration: underline;
+    }
+
+    section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3rem 1.5rem;
+    }
+
+    .biografia {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .biografia img {
+        flex: 1 1 300px;
+        border-radius: 15px;
+        box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+        max-width: 380px;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+    .biografia img:hover {
+        transform: scale(1.05);
+    }
+
+    .biografia div {
+        flex: 1 1 300px;
+    }
+
+    .galeria {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    .galeria img, .galeria video {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .galeria img:hover {
+        transform: scale(1.05);
+    }
+   /* Notificación moderna */
+.notificacion {
+  position: relative;
+  cursor: pointer;
+}
+
+.campana {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.campana i {
+  font-size: 1.3rem;
+  color: #2e8b57;
+  animation: campanaAnim 1s infinite alternate;
+}
+
+.texto-noti {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2e8b57;
+}
+
+/* Panel desplegable */
+.panel-noti {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: var(--rosado-fondo);
+  color: #2e8b57;
+  border: 2px solid #2e8b57;
+  border-radius: 12px;
+  padding: 10px;
+  min-width: 220px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.panel-noti p {
+  margin: 0;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.panel-noti p:hover {
+  background: rgba(80, 200, 120, 0.15);
+}
+
+/* Animación campana */
+@keyframes campanaAnim {
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
+}
+    .foto-final {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+    }
+
+    footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.9rem;
+    }
+</style>
+</head>
+<link rel="icon" href="imagenes reina/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<body>
+
+<header>
+    <img src="https://i.postimg.cc/gJZ3QXbq/Logotipo-reina.png" alt="Logo Reina de Rioverde" class="logo">
+    <h1>Reina del Cantón Rioverde</h1>
+    <h2>Jamileth Gonzales Burgos – 2025/2026</h2>
+</header>
+
+<nav>
+  <ul class="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="Noticias.html">Noticias</a></li>
+      <li><a href="galeria de momento.html">Galería de Momentos</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+  </ul>
+
+  <!-- Campana fuera del menú -->
+  <div class="notificacion">
+    <div class="campana" onclick="toggleNotificaciones()">
+      <i class="fa-solid fa-bell"></i>
+      <span class="texto-noti">Nuevas notificaciones</span>
+    </div>
+    <div class="panel-noti" id="panelNoti">
+      <p onclick="window.location.href='Noticias.html'">📢 Nueva noticia disponible</p>
+         <p onclick="window.location.href='galeria de momento.html?categoria=evento'">🎉 Nuevo evento añadido</p>
+    </div>
+  </div>
+</nav>
+
+<section class="biografia" id="inicio">
+    <div>
+        <h2>Biografía</h2>
+        <p>Jamileth Sarai Gonzalez Burgos, actual reina del canton Río Verde, esta comprometida a promover la cultura de su canton, impulsar el turismo
+        <p>y ser solidaria con las comunidades. 
+        <p>Con su respondabilidad y escencia inspire a las demas personas a conseguir un mejor futuro.</p> <br>
+
+        <h2>Misión</h2>
+        <p>Realizar activiades comunitarias y poder conectar con la gente de mi canton.</p> <br>
+
+        <h2>Visión</h2>
+        <p>Ser reconocida por mi labor comunitaria, y dejar mi huella como reina de mi canton. </p> <br>
+
+        <h2>Valores</h2>
+        <p>Humildad, Amabalidad, Responsabilidad, Liderazgo y Sabiduria.</p><br>
+    </div>
+    <img src="https://i.postimg.cc/JhdQ9CDm/Coronacion-jamileth.jpg" alt="Foto de la Reina del Cantón">
+</section>
+
+
+
+<footer>
+    <p>© 2025 Reina de Cantón Río Verde - Todos los derechos reservados</p>
+    <p>Diseño y desarrollo por <strong> Clevel JL </strong></p>
+</footer>
+<script>
+  function toggleNotificaciones() {
+    const panel = document.getElementById("panelNoti");
+    panel.style.display = (panel.style.display === "block") ? "none" : "block";
+  }
+
+  // Cerrar si hago click fuera
+  window.addEventListener("click", function(e) {
+    const panel = document.getElementById("panelNoti");
+    const campana = document.querySelector(".campana");
+    if (panel.style.display === "block" && !campana.contains(e.target)) {
+      panel.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>
+
+

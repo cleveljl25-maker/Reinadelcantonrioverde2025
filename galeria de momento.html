@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galería de Momentos</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+:root {
+    --verde-esmeralda: #2e8b57;
+    --rosado-fondo: #f9d5e5;
+}
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--rosado-fondo);
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: white;
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    position: relative;
+}
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #2e8b57;
+}
+header h2 {
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: #2e8b57;
+    margin-bottom: 1rem;
+}
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 150px;
+    height: auto;
+}
+
+/* Menú principal */
+nav {background-color: white; padding: 0.5rem 0;}
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+.menu li a {
+    color: var(--verde-esmeralda);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.menu li a:hover, .menu li a.activo {
+    color: #2e8b57;
+    text-decoration: underline;
+}
+
+/* Semi menú (Todo | Eventos | Fotos | Videos) */
+.filtros {text-align: center; margin: 2rem 0;}
+.filtros button {
+    background: var(--rosado-fondo);
+    color: #2e8b57;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.filtros button:hover, .filtros button.activo {
+    background: #2e8b57;
+    color: white;
+}
+
+/* Secciones */
+section {max-width: 1100px; margin: auto; padding: 2rem 1.5rem;}
+h2 {text-align: center; color: #2e8b57;; margin-bottom: 2rem;}
+
+/* Contenedor con menú lateral */
+.contenedor-eventos {display: flex; gap: 20px;}
+.menu-meses {
+    display: flex; flex-direction: column;
+    background: var(--rosado-fondo);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+.menu-meses button {
+    background: var(--rosado-fondo);
+    color: #2e8b57;
+    border: none;
+    padding: 0.5rem;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.menu-meses button:hover, .menu-meses button.activo {
+    background: #2e8b57;
+    color: white;
+}
+.lista-eventos, .lista-fotos {flex: 1;}
+
+/* Bloques acordeón */
+.evento {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+.evento-titulo {
+    background: var(--rosado-fondo);
+    color: #2e8b57;
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.evento-contenido {display: none; padding: 1rem;}
+.evento-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: 1rem;
+}
+.evento-galeria img {width: 100%; border-radius: 8px;}
+.galeria-general {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 1rem;
+}
+
+.galeria-general img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.galeria-general img:hover {
+  transform: scale(1.05);
+}
+.galeria-videos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+  gap: 15px;
+  padding: 1rem;
+}
+
+.galeria-videos video {
+  width: 100%;
+  height: 280px; /* mismo alto que las fotos */
+  object-fit: cover; /* recorta sin deformar */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.galeria-videos video:hover {
+  transform: scale(1.05);
+}
+
+/* Botón regresar */
+.btn-regresar {
+    background: #2e8b57;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 1rem auto;        
+    display: block;          
+    text-align: center;
+}
+
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+</style>
+</head>
+    <link rel="icon" href="imagenes reina/favicon.ico" type="image/x-icon">
+<body>
+<header>
+    <img src="https://i.postimg.cc/gJZ3QXbq/Logotipo-reina.png" class="logo">
+    <h1>Reina del Cantón Rioverde</h1>
+    <h2>Jamileth Gonzales Burgos – 2025/2026</h2>
+</header>
+
+<nav>
+    <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Noticias.html">Noticias</a></li>
+        <li><a href="galeria de momento.html" class="activo">Galería de Momentos</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
+    </ul>
+</nav>
+
+<!-- Semi menú -->
+<div class="filtros">
+  <button class="activo" data-categoria="todo">Todo</button>
+  <button data-categoria="evento">Eventos</button>
+  <button data-categoria="fotos">Sección de Fotos</button>
+  <button data-categoria="video">Videos</button>
+</div>
+
+<!-- TODO -->
+<section id="galeria">
+  <h2>Galería General</h2>
+  <div class="galeria-general">
+    <img src="https://i.postimg.cc/wBBVfjB0/Coronacion-jamileth-2.jpg" alt="Coronacion">
+    <img src="https://i.postimg.cc/52bpz3Wc/Desfile-Jamileth-1.jpg" alt="Desfile 1">
+    <img src="https://i.postimg.cc/PrkMG4xL/Desfile-Jamileth-5.jpg" alt="Desfile 5"> 
+    <img src="https://i.postimg.cc/RCcn5x2m/Barra-Completa.jpg" alt="Desfile 5">
+  </div>
+</section>
+
+<!-- EVENTOS -->
+<section id="eventos" style="display:none;">
+  <h2>Eventos Realizados</h2>
+  <button id="btn-regresar-eventos" class="btn-regresar">← Regresar a Galería</button>
+  <div class="contenedor-eventos">
+    <aside class="menu-meses">
+      <button data-mes="agosto">Agosto</button>
+      <button data-mes="septiembre">Septiembre</button>
+    </aside>
+    <div class="lista-eventos"></div>
+  </div>
+</section>
+
+<!-- FOTOS -->
+<section id="fotos" style="display:none;">
+  <h2>Galería de Fotos</h2>
+  <button id="btn-regresar-fotos" class="btn-regresar">← Regresar a Galería</button>
+  <div class="contenedor-eventos">
+    <aside class="menu-meses">
+      <button data-mes="all" class="activo">Todos</button>
+      <button data-mes="agosto">Agosto</button>
+      <button data-mes="septiembre">Septiembre</button>
+    </aside>
+    <div class="lista-fotos"></div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <h2>Videos</h2>
+  <div class="galeria-videos">
+    <video controls>
+      <source src="https://www.dropbox.com/scl/fi/c93rqczljox2ofzy0fiov/VIDEO-1.mp4?rlkey=b7yoo8fyq18i0mt2tqy74hqgy&st=dxfvqv2q&raw=1" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+    <video controls>
+      <source src="https://www.dropbox.com/scl/fi/nnsglmw6qnmat0vomksv9/VIDEO-2.mp4?rlkey=t9bygi7l826ukhkz9va3c634y&st=mfq4f4wv&raw=1" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+    <video controls>
+      <source src="https://www.dropbox.com/scl/fi/bkkaaelpk0syxhtfgw9nb/VIDEO-3.mp4?rlkey=6rm4d4m36e9f2oncnkfvcaas6&st=6t5r22ek&raw=1" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+  </div>
+</section>
+
+
+<footer>
+    &copy; 2025 Reina del Cantón Rioverde. Todos los derechos reservados.
+    <p>Diseño y desarrollo por <strong> Clevel JL </strong></p>
+</footer>
+
+<script>
+// =======================
+// EVENTOS
+// =======================
+const eventosData = [ 
+   {
+    mes: "agosto",
+    titulo: "¡Final del Campeonato!🏆⚽🎉",
+    fecha: "17/08/2025",
+    descripcion: "Es un honor, como Reina de nuestro cantón, acompañar la clausura del campeonato, ejemplo de unión y talento juvenil ❤️",
+    imagenes: [ "https://i.postimg.cc/MZRzcT9C/Final-Campeonato-4.jpg",
+                "https://i.postimg.cc/25VDC8qX/Final-Campeonato-7.jpg",
+                "https://i.postimg.cc/rFNcJHXg/Final-Campeonato-3.jpg",
+               "https://i.postimg.cc/L84S0VmS/Final-Campeonato-2.jpg",
+            ]
+  }, 
+
+  {
+    mes: "agosto",
+    titulo: "🏆 ¡Inauguración del Campeonato!⚽🎉",
+    fecha: "15/08/2025",
+    descripcion: "La reina del Cantón Rio Verde fue participe de el campeonato Las Nuevas Promesas. Fútbol indor con energía, pasión y futuro vivimos hoy la tarde de de 15 de agosto en la Parroquia Rocafuerte ❤️",
+    imagenes: [ "https://i.postimg.cc/02ZJXYKq/Campeonato-5.jpg",
+                "https://i.postimg.cc/tJNVjPrW/Campeonato-2.jpg",
+                "https://i.postimg.cc/MpTfCn1f/Campeonato-6.jpg",
+            ]
+  }, 
+
+  {
+    mes: "agosto",
+    titulo: "Desfile Cívio y Sesión solemne ",
+    fecha: "05/08/2025",
+    descripcion: "Participando como su nueva soberana en el desfile cívico y sesión solemne por los 205 años de independencia política de mi querido Cantón Rioverde ❤️",
+    imagenes: [ "https://i.postimg.cc/NFR79yNf/Desfile-Jamileth-6.jpg",
+                "https://i.postimg.cc/VstFHTYQ/Desfile-Jamileth-7.jpg",
+                "https://i.postimg.cc/kXFv7b6T/Desfile-Jamileth-8.jpg",
+            ]
+  },
+
+  {
+    mes: "agosto",
+    titulo: "Noche Cultural",
+    fecha: "04/08/2025",
+    descripcion: "Con alegría disfrute de una noche magica en el festival cultural y los barrios cantan  ❤️🎉",
+    imagenes: ["https://i.postimg.cc/XqKdNRJr/Noche-cultural-Jamileth.jpg",
+                "https://i.postimg.cc/1X1DQm9x/Noche-cultural-Jamileth-2.jpg"
+            ]
+  },
+
+  {
+    mes: "agosto",
+    titulo: "Coronación Reina 2025",
+    fecha: "12/08/2025",
+    descripcion: "Coronación de Jamileth Gonzales Burgos como Reina del Cantón Rioverde 2025-2026.",
+    imagenes: ["https://i.postimg.cc/JhdQ9CDm/Coronacion-jamileth.jpg",
+                "https://i.postimg.cc/wBBVfjB0/Coronacion-jamileth-2.jpg",
+                "https://i.postimg.cc/rm09TZx4/Coronacion-Jamileth-3.jpg",
+              ]
+  },
+
+];
+
+function mostrarEventos(mes) {
+  const cont = document.querySelector(".lista-eventos");
+  cont.innerHTML = "";
+  const filtrados = mes === "all" ? eventosData : eventosData.filter(e=>e.mes===mes);
+  filtrados.forEach(ev=>{
+    cont.innerHTML += `
+      <div class="evento">
+        <button class="evento-titulo">${ev.titulo} <span class="fecha">${ev.fecha}</span></button>
+        <div class="evento-contenido">
+          <p>${ev.descripcion}</p>
+          <div class="evento-galeria">
+            ${ev.imagenes.map(img=>`<img src="${img}">`).join("")}
+          </div>
+        </div>
+      </div>`;
+  });
+  document.querySelectorAll('.lista-eventos .evento-titulo').forEach(btn=>{
+    btn.onclick=()=>{
+      const c=btn.nextElementSibling;
+      c.style.display=c.style.display==="block"?"none":"block";
+    };
+  });
+}
+document.addEventListener("click",e=>{
+  if(e.target.matches('#eventos .menu-meses button')){
+    document.querySelectorAll('#eventos .menu-meses button').forEach(b=>b.classList.remove('activo'));
+    e.target.classList.add('activo');
+    mostrarEventos(e.target.dataset.mes);
+  }
+});
+mostrarEventos("all");
+
+// =======================
+// FOTOS
+// =======================
+const fotosData = [
+    {
+    mes: "agosto",
+    titulo: "🏆 ¡Inauguración del Campeonato!⚽🎉",
+    fecha: "15/08/2025",
+    descripcion: "🏆Talento, pasión y sueños en cada partido.",
+    imagenes: ["https://i.postimg.cc/YCsLMtxn/Campeonato-7.jpg",
+                "https://i.postimg.cc/mDxc1VJ7/Campeonato-8.jpg",
+                "https://i.postimg.cc/q76h7Wbk/Campeonato-9.jpg",
+                "https://i.postimg.cc/SQ69CFyR/Campeonato-3.jpg",
+                "https://i.postimg.cc/jdR7hg5X/Campeonato-4.jpg",
+                "https://i.postimg.cc/hjbGzn9q/Campeonato-10.jpg",
+            ]
+  },
+
+    {
+    mes: "agosto",
+    titulo: "Desfile Cívio y Sesión solemne",
+    fecha: "05/08/2025",
+    descripcion: "Sesión Fotográfica",
+    imagenes: ["https://i.postimg.cc/52bpz3Wc/Desfile-Jamileth-1.jpg",
+                "https://i.postimg.cc/Z5HHxdJW/Desfile-Jamileth-3.jpg",
+                "https://i.postimg.cc/63kfpVfm/Desfile-Jamileth-4.jpg",
+                "https://i.postimg.cc/PrkMG4xL/Desfile-Jamileth-5.jpg",
+                "https://i.postimg.cc/PrkMG4xL/Desfile-Jamileth-5.jpg",
+                "https://i.postimg.cc/qvJXqv24/Desfile-Jamileth-10.jpg",
+            ]
+  },
+    
+];
+
+function mostrarFotos(mes) {
+  const cont = document.querySelector(".lista-fotos");
+  cont.innerHTML = "";
+  const filtrados = mes === "all" ? fotosData : fotosData.filter(f=>f.mes===mes);
+  filtrados.forEach(f=>{
+    cont.innerHTML += `
+      <div class="evento">
+        <button class="evento-titulo">${f.titulo} <span class="fecha">${f.fecha}</span></button>
+        <div class="evento-contenido">
+          <p>${f.descripcion}</p>
+          <div class="evento-galeria">
+            ${f.imagenes.map(img=>`<img src="${img}">`).join("")}
+          </div>
+        </div>
+      </div>`;
+  });
+  document.querySelectorAll('.lista-fotos .evento-titulo').forEach(btn=>{
+    btn.onclick=()=>{
+      const c=btn.nextElementSibling;
+      c.style.display=c.style.display==="block"?"none":"block";
+    };
+  });
+}
+document.addEventListener("click",e=>{
+  if(e.target.matches('#fotos .menu-meses button')){
+    document.querySelectorAll('#fotos .menu-meses button').forEach(b=>b.classList.remove('activo'));
+    e.target.classList.add('activo');
+    mostrarFotos(e.target.dataset.mes);
+  }
+});
+mostrarFotos("all");
+
+// =======================
+// CONTROL SEMI MENÚ
+// =======================
+document.addEventListener("click", e => {
+  if (e.target.matches(".filtros button")) {
+    document.querySelectorAll(".filtros button").forEach(b => b.classList.remove("activo"));
+    e.target.classList.add("activo");
+    let cat = e.target.dataset.categoria;
+    document.querySelector("#galeria").style.display = cat==="todo"?"block":"none";
+    document.querySelector("#eventos").style.display = cat==="evento"?"block":"none";
+    document.querySelector("#fotos").style.display   = cat==="fotos" ?"block":"none";
+    document.querySelector("#videos").style.display  = cat==="video" ?"block":"none";
+  }
+});
+
+// Regresar
+document.getElementById("btn-regresar-eventos").onclick=()=>{
+  document.querySelector("#eventos").style.display="none";
+  document.querySelector("#galeria").style.display="block";
+  document.querySelectorAll(".filtros button").forEach(b=>b.classList.remove("activo"));
+  document.querySelector('.filtros button[data-categoria="todo"]').classList.add("activo");
+};
+document.getElementById("btn-regresar-fotos").onclick=()=>{
+  document.querySelector("#fotos").style.display="none";
+  document.querySelector("#galeria").style.display="block";
+  document.querySelectorAll(".filtros button").forEach(b=>b.classList.remove("activo"));
+  document.querySelector('.filtros button[data-categoria="todo"]').classList.add("activo");
+};
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const categoria = params.get("categoria");
+
+    if (categoria) {
+      const boton = document.querySelector(`[data-categoria="${categoria}"]`);
+      if (boton) {
+        boton.click(); // ✅ activa automáticamente el botón "Eventos"
+      }
+    }
+  });
+
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
