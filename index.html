@@ -124,63 +124,6 @@
     .galeria img:hover {
         transform: scale(1.05);
     }
-   /* Notificación moderna */
-.notificacion {
-  position: relative;
-  cursor: pointer;
-}
-
-.campana {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.campana i {
-  font-size: 1.3rem;
-  color: #2e8b57;
-  animation: campanaAnim 1s infinite alternate;
-}
-
-.texto-noti {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #2e8b57;
-}
-
-/* Panel desplegable */
-.panel-noti {
-  display: none;
-  position: absolute;
-  top: 35px;
-  left: 0;
-  background: var(--rosado-fondo);
-  color: #2e8b57;
-  border: 2px solid #2e8b57;
-  border-radius: 12px;
-  padding: 10px;
-  min-width: 220px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
-  z-index: 100;
-}
-
-.panel-noti p {
-  margin: 0;
-  padding: 8px;
-  border-radius: 8px;
-  transition: background 0.3s ease;
-  cursor: pointer;
-}
-
-.panel-noti p:hover {
-  background: rgba(80, 200, 120, 0.15);
-}
-
-/* Animación campana */
-@keyframes campanaAnim {
-  0% { transform: rotate(-10deg); }
-  100% { transform: rotate(10deg); }
-}
     .foto-final {
         grid-column: 1 / -1;
         display: flex;
@@ -258,17 +201,10 @@
     panel.style.display = (panel.style.display === "block") ? "none" : "block";
   }
 
-  // Cerrar si hago click fuera
-  window.addEventListener("click", function(e) {
-    const panel = document.getElementById("panelNoti");
-    const campana = document.querySelector(".campana");
-    if (panel.style.display === "block" && !campana.contains(e.target)) {
-      panel.style.display = "none";
-    }
-  });
 </script>
 
 </body>
 </html>
+
 
 
