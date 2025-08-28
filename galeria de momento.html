@@ -227,7 +227,7 @@ footer {
 <!-- Semi menú -->
 <div class="filtros">
   <button class="activo" data-categoria="todo">Todo</button>
-  <button data-categoria="evento">Eventos</button>
+  <button data-categoria="eventos">Eventos</button>
   <button data-categoria="fotos">Sección de Fotos</button>
   <button data-categoria="video">Videos</button>
 </div>
@@ -500,7 +500,7 @@ document.addEventListener("click", e => {
     e.target.classList.add("activo");
     let cat = e.target.dataset.categoria;
     document.querySelector("#galeria").style.display = cat==="todo"?"block":"none";
-    document.querySelector("#eventos").style.display = cat==="evento"?"block":"none";
+    document.querySelector("#eventos").style.display = cat==="eventos"?"block":"none";
     document.querySelector("#fotos").style.display   = cat==="fotos" ?"block":"none";
     document.querySelector("#videos").style.display  = cat==="video" ?"block":"none";
   }
@@ -537,6 +537,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </body>
 
 </html>
+
 
 
 
